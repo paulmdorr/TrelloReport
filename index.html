@@ -1,0 +1,91 @@
+<html ng-app="umamiHappyReportApp">
+<head>
+    <title>Umami Happy Report App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://api.trello.com/1/client.js?key=9c4193d329e8bd8f5460e6a774ba868d"></script>
+    <script src="js/trelloAuth.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="js/umamiHappyReportApp.js"></script>
+</head>
+<body ng-controller="BoardMembersListController">
+    <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Umami Happy Report!</span>
+            <span class="md-subhead">Select a board to start the happy reporting.</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <div layout="row">
+                <md-input-container>
+                    <label>Board</label>
+                    <md-select ng-model="currentBoard" ng-change="changeBoard()">
+                        <md-option ng-repeat="board in boards" ng-value="board">
+                            {{board.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>Start Date</label>
+                    <md-datepicker ng-model="startDate" md-placeholder="Enter start date">
+                        
+                    </md-datepicker>
+                </md-input-container>
+                <md-input-container>
+                    <label>End Date</label>
+                    <md-datepicker ng-model="endDate" md-placeholder="Enter end date">
+                        
+                    </md-datepicker>
+                </md-input-container>
+            </div>
+            <div ng-cloak layout-gt-sm="row" layout="row">
+                <div flex-gt-sm="30" flex>
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools">
+                            <span>Board Members</span>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <md-list flex>
+                            <md-list-item class="md-2-line" ng-repeat="member in members" ng-click="null">
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>{{member.fullName}}</h3>
+                                    <h4>@{{member.username}}</h4>
+                                </div>
+                                <md-divider></md-divider>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </div>
+                <md-divider></md-divider>
+                <div flex-gt-sm="80" flex>
+                    <md-toolbar layout="row" class="md-hue-3">
+                        <div class="md-toolbar-tools">
+                            <span>Cards</span>
+                        </div>
+                    </md-toolbar>
+                    <md-content>
+                        <md-list flex>
+                            <md-list-item class="md-3-line" ng-repeat="action in actions">
+                                <div class="md-list-item-text" layout="column">
+                                    <h3>Card: {{action.data.card.name}}</h3>
+                                    <h4>Date: {{action.date}}</h4>
+                                    <h4>Action: {{action.type}} / User: @{{action.memberCreator.username}}</h4>
+                                </div>
+                                <md-divider></md-divider>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                </div>
+            </div>
+        </md-card-content>
+    </md-card>
+</body>
+</html>
