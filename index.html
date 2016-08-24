@@ -23,31 +23,29 @@
           </md-card-title-text>
         </md-card-title>
         <md-card-content>
-            <div layout="row">
-                <md-input-container>
-                    <label>Board</label>
-                    <md-select ng-model="currentBoard" ng-change="changeBoard()">
-                        <md-option ng-repeat="board in boards" ng-value="board">
-                            {{board.name}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
-                <md-input-container>
-                    <label>Start Date</label>
-                    <md-datepicker ng-model="startDate" md-placeholder="Start date" ng-change="updateDateRange()">
-                        
-                    </md-datepicker>
-                </md-input-container>
-                <md-input-container>
-                    <label>End Date</label>
-                    <md-datepicker ng-model="endDate" md-placeholder="End date" ng-change="updateDateRange()">
-                        
-                    </md-datepicker>
-                </md-input-container>
-            </div>
+            <md-toolbar md-colors="{background: 'Grey-800'}">
+                <div layout="row">
+                    <div class="md-toolbar-tools">
+                        <label>Board</label>
+                        <md-select ng-model="currentBoard" ng-change="changeBoard()" md-colors="{background: 'Grey-800'}">
+                            <md-option ng-repeat="board in boards" ng-value="board">
+                                {{board.name}}
+                            </md-option>
+                        </md-select>
+                        <label>Start Date</label>
+                        <md-datepicker ng-model="startDate" md-placeholder="Start date" ng-change="updateDateRange()" md-open-on-focus>
+                            
+                        </md-datepicker>
+                        <label>End Date</label>
+                        <md-datepicker ng-model="endDate" md-placeholder="End date" ng-change="updateDateRange()" md-open-on-focus>
+                            
+                        </md-datepicker>
+                    </div>
+                </div>
+            </md-toolbar>
             <div ng-cloak layout-gt-sm="row" layout="row">
                 <div flex-gt-sm="30" flex>
-                    <md-toolbar layout="row" class="md-hue-3">
+                    <md-toolbar layout="row" md-colors="{background: 'Orange-A200'}">
                         <div class="md-toolbar-tools">
                             <span>Board Members</span>
                         </div>
@@ -66,7 +64,7 @@
                 </div>
                 <md-divider></md-divider>
                 <div flex-gt-sm="80" flex>
-                    <md-toolbar layout="row" class="md-hue-3">
+                    <md-toolbar layout="row" md-colors="{background: 'Orange-A200'}">
                         <div class="md-toolbar-tools">
                             <span>Cards Actions</span>
                         </div>
