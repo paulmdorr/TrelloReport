@@ -1,0 +1,11 @@
+{
+  "name": "umami-happy-report",
+  "description": "A Trello reporting app by Umami Collective",
+  "version": "0.0.0",
+  "homepage": "https://github.com/paulmdorr/UmamiHappyReport",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x"
+  }
+}
