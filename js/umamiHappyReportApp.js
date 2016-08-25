@@ -81,4 +81,10 @@ umamiHappyReportApp.controller('BoardMembersListController', function BoardMembe
         }
         $scope.updateFilter();
     }
+
+    $scope.clearDates = function() {
+        $scope.startDate = null;
+        $scope.endDate = null;
+        $scope.updateFilter();
+    }
 });

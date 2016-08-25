@@ -38,6 +38,8 @@
                         <label>End Date</label>
                         <md-datepicker ng-model="endDate" md-placeholder="End date" ng-change="updateFilter()" md-open-on-focus>
                         </md-datepicker>
+                        <md-button class="md-raised" ng-click="clearDates()">Clear Dates</md-button>
+                        <label>Members</label>
                         <md-chips ng-model="membersFilter" readonly="true" md-removable="true" md-on-remove="alterMembersFilter($chip)">
                             <md-chip-template>
                                 {{$chip.fullName}}
