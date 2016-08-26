@@ -46,6 +46,9 @@
                                 {{$chip.fullName}}
                             </md-chip-template>
                         </md-chips>
+                        <md-checkbox ng-model="onlyLastAction" aria-label="Show only the last action" ng-change="updateFilter()">
+                            Show only the last action
+                        </md-checkbox>
                     </div>
                 </div>
             </md-toolbar>

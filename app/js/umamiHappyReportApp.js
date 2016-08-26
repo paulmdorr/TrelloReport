@@ -23,6 +23,7 @@ umamiHappyReportApp.controller('BoardMembersListController', function BoardMembe
     $scope.startDate = null;
     $scope.endDate = null;
     $scope.membersFilter = [{fullName: 'All'}];
+    $scope.onlyLastAction = true;
 
     $scope.updateFilter = function() {
         if ($scope.startDate != null && $scope.endDate != null) {
@@ -70,8 +71,10 @@ umamiHappyReportApp.controller('BoardMembersListController', function BoardMembe
                         actions: []
                     };
                 }
-                $scope.actions[action].date = new Date($scope.actions[action].date).toUTCString();
-                $scope.filteredActions[memberCreatrorName].cards[cardId].actions.push($scope.actions[action]);
+                if (!$scope.onlyLastAction || $scope.filteredActions[memberCreatrorName].cards[cardId].actions.length == 0) {
+                    $scope.actions[action].date = new Date($scope.actions[action].date).toUTCString();
+                    $scope.filteredActions[memberCreatrorName].cards[cardId].actions.push($scope.actions[action]);
+                }
             }
         }
     }
