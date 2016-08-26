@@ -1,6 +1,6 @@
 # Umami Happy Report
 
-Report tool to get a list of the actions executed on Trello board's cards during a period of time, made by [Umami Collective](www.umamicollective.com)
+Report tool to get a list of the actions executed on Trello board's cards during a period of time, made by Paul M Dorr for [Umami Collective](www.umamicollective.com)
 
 ### Prerequisities
 
@@ -30,7 +30,7 @@ http://localhost:800
 ## Built With
 
 * AngularJS
-* AngularMaterial
+* Angular Material
 * node.js
 
 ## License
