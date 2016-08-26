@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://api.trello.com/1/client.js?key=9c4193d329e8bd8f5460e6a774ba868d"></script>
     <script src="js/trelloAuth.js"></script>
@@ -78,9 +79,15 @@
                         <md-list flex>
                             <md-list-item class="md-3-line" ng-repeat="action in filteredActions">
                                 <div class="md-list-item-text" layout="column">
-                                    <h3>Card: {{action.data.card.name}}</h3>
-                                    <h4>Date: {{action.date}}</h4>
-                                    <h4>Action: {{action.type}} / User: @{{action.memberCreator.username}}</h4>
+                                    <h3>Member: {{action.username}}</h3>
+                                    <div class="tabulated" layout="column" ng-repeat="card in action.cards">
+                                        <h3>Card: {{card.name}}</h3>
+                                        <div class="tabulatedx2" ng-repeat="action in card.actions">
+                                            <h4>Date: {{action.date}}</h4>
+                                            <h4>Action: {{action.type}}</h4>
+                                        </div>
+                                    </div>
+                                    <md-divider md-inset></md-divider>
                                 </div>
                                 <md-divider></md-divider>
                             </md-list-item>

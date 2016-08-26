@@ -36,7 +36,7 @@ umamiHappyReportApp.controller('BoardMembersListController', function BoardMembe
             }
         }
 
-        $scope.filteredActions = [];
+        $scope.filteredActions = {};
         for (action in $scope.actions) {
             var actionDate = new Date($scope.actions[action].date);
             var isCard = $scope.actions[action].data != undefined && $scope.actions[action].data.card != undefined;
@@ -56,7 +56,22 @@ umamiHappyReportApp.controller('BoardMembersListController', function BoardMembe
             }
             
             if (isCard && withinDateRange && belongsToMember) {
-                $scope.filteredActions.push($scope.actions[action]);
+                var memberCreatrorName = $scope.actions[action].memberCreator.username;
+                if (!(memberCreatrorName in $scope.filteredActions)) {
+                    $scope.filteredActions[memberCreatrorName] = {
+                        username: memberCreatrorName,
+                        cards: {}
+                    };
+                }
+                var cardId = $scope.actions[action].data.card.id;
+                if (!(cardId in $scope.filteredActions[memberCreatrorName].cards)) {
+                    $scope.filteredActions[memberCreatrorName].cards[cardId] = {
+                        name: $scope.actions[action].data.card.name,
+                        actions: []
+                    };
+                }
+                $scope.actions[action].date = new Date($scope.actions[action].date).toUTCString();
+                $scope.filteredActions[memberCreatrorName].cards[cardId].actions.push($scope.actions[action]);
             }
         }
     }
