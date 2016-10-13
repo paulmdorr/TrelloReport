@@ -24,7 +24,7 @@ bower install
 Then just go to
 
 ```
-http://localhost:800
+http://localhost:8000
 ```
 
 ## Built With
