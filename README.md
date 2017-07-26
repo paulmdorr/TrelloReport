@@ -1,4 +1,4 @@
-# Umami Happy Report
+# Trello Report
 
 Report tool to get a list of the actions executed on Trello board's cards during a period of time, made by Paul M Dorr for [Umami Collective](http://www.umamicollective.com)
 
